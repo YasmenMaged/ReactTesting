@@ -37,14 +37,9 @@ const Pets = () => {
     }
     if (filters.favoured !== "any") {
       catsFiltered = catsFiltered.filter((cat) => {
-        console.log(
-          cat.favoured,
-          filters.favoured,
-          cat.favoured === filters.favoured
-        );
-        return (
-          cat.favoured === (filters.favoured === "favoured" ? true : false)
-        );
+        // cat.favoured is a boolean, filters.favoured is a string ("favoured" or "not favoured")
+        const expectedFavouredState = filters.favoured === "favoured";
+        return cat.favoured === expectedFavouredState;
       });
     }
     setFilteredCats(catsFiltered);
